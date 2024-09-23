@@ -5,11 +5,10 @@ namespace SIGESPROC.UnitTest
 {
     public class Tests
     {
-        private readonly PresupuestoEncabezadoRepository _presupuestoencabezadoRepository;
         [SetUp]
         public void Setup()
         {
-
+     
         }
 
         [Test]
