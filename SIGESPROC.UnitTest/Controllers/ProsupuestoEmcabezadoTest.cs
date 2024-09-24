@@ -47,11 +47,27 @@ namespace SIGESPROC.UnitTest.Controllers
         {
             var data = new PresupuestoEncabezadoViewModel();
             var result = _presupuestoEncabezado.Create(data);
-            //int Code = (int)result.StatusCode;
 
             Assert.IsInstanceOfType<IActionResult>(result);
             Assert.IsNotNull(result);
         }
+
+
+
+        [TestMethod]
+        public void presupuestoEncabezadoUpdate()
+        {
+            int id = 0;
+            var data = new PresupuestoEncabezadoViewModel();
+            var result = _presupuestoEncabezado.Update(data);
+
+            Assert.IsInstanceOfType<IActionResult>(result);
+            Assert.IsNotNull(result);
+        }
+
+
+
+
 
     }
 }
