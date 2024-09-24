@@ -81,7 +81,7 @@ namespace SIGESPROC.Common.Models.ModelsGeneral
         //Top 5 agentes de bienes raices con mas ventas
 
         public int agen_Id { get; set; }
-        public float cantidadVendida { get; set; }
+        public int cantidadVendida { get; set; }
         public string agen_NombreCompleto { get; set; }
         //terrenos vendidos por el mes
         public string nombreTerreno { get; set; }
@@ -134,7 +134,6 @@ namespace SIGESPROC.Common.Models.ModelsGeneral
         public double deudaTotal { get; set; }
 
         public double totalM { get; set; }
-        public int totalMC { get; set; }
         //Top 5 bancos
 
 

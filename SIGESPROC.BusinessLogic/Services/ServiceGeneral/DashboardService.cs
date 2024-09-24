@@ -186,22 +186,6 @@ namespace SIGESPROC.BusinessLogic.Services.ServiceGeneral
             }
         }
 
-        public ServiceResult DashboardTotalVendidosNovendidos(string fehaInicio, string fechaFin)
-        {
-            var result = new ServiceResult();
-            try
-            {
-                var list = _dashboardRepository.TotalesVendidosNovendidos(fehaInicio, fechaFin);
-                return result.Ok(list);
-            }
-
-            catch (Exception ex)
-            {
-
-                return result.Error(ex.Message);
-            }
-        }
-
         public ServiceResult DashboardVentasPorAgente(string fehaInicio, string fechaFin)
         {
             var result = new ServiceResult();
@@ -253,21 +237,6 @@ namespace SIGESPROC.BusinessLogic.Services.ServiceGeneral
                 return result.Error(ex.Message); // Retorna un error con el mensaje de la excepción
             }
         }
-
-        public ServiceResult ProyectosRelacionados(string fehaInicio, string fechaFin)
-        {
-            var result = new ServiceResult();
-            try
-            {
-                var list = _dashboardRepository.ProyectosRelacionados(fehaInicio, fechaFin); // Llama al repositorio para obtener la lista de fletes
-                return result.Ok(list); // Retorna el resultado exitoso con la lista de fletes
-            }
-            catch (Exception ex)
-            {
-                return result.Error(ex.Message); // Retorna un error con el mensaje de la excepción
-            }
-        }
-
         public ServiceResult Top5BodegasDestino()
         {
             var result = new ServiceResult();
@@ -281,20 +250,6 @@ namespace SIGESPROC.BusinessLogic.Services.ServiceGeneral
                 return result.Error(ex.Message); // Retorna un error con el mensaje de la excepción
             }
         }
-        public ServiceResult Top5BodegasDestino(string fechaInicio, string fechaFin)
-        {
-            var result = new ServiceResult();
-            try
-            {
-                var list = _dashboardRepository.TopBodegasDestinoFill(fechaInicio, fechaFin); // Llama al repositorio para obtener la lista de fletes
-                return result.Ok(list); // Retorna el resultado exitoso con la lista de fletes
-            }
-            catch (Exception ex)
-            {
-                return result.Error(ex.Message); // Retorna un error con el mensaje de la excepción
-            }
-        }
-
         public ServiceResult FletesTasaIncidencias()
         {
             var result = new ServiceResult();
@@ -309,12 +264,12 @@ namespace SIGESPROC.BusinessLogic.Services.ServiceGeneral
             }
         }
 
-        public ServiceResult TasaIncidenciasMesFletes(string fechaInicio, string fechaFin)
+        public ServiceResult TasaIncidenciasMesFletes()
         {
             var result = new ServiceResult();
             try
             {
-                var list = _dashboardRepository.TasaIncidenciasMesFletes(fechaInicio, fechaFin); // Llama al repositorio para obtener la lista de fletes
+                var list = _dashboardRepository.TasaIncidenciasMesFletes(); // Llama al repositorio para obtener la lista de fletes
                 return result.Ok(list); // Retorna el resultado exitoso con la lista de fletes
             }
             catch (Exception ex)
@@ -478,12 +433,12 @@ namespace SIGESPROC.BusinessLogic.Services.ServiceGeneral
             }
         }
 
-        public ServiceResult PagosJefesDeObra(string fehaInicio, string fechaFin)
+        public ServiceResult PagosJefesDeObra(int id)
          {
             var result = new ServiceResult();
             try
             {
-                var map = _dashboardRepository.PagosJefesObra(fehaInicio, fechaFin); // Llama al repositorio para buscar el detalle del flete por su ID
+                var map = _dashboardRepository.PagosJefesObra(id); // Llama al repositorio para buscar el detalle del flete por su ID
                 return result.Ok(map); // Retorna el resultado exitoso con el detalle del flete encontrado
             }
             catch (Exception ex)
@@ -552,12 +507,12 @@ namespace SIGESPROC.BusinessLogic.Services.ServiceGeneral
             }
         }
 
-        public ServiceResult BancosMasAcreditados(string fehaInicio, string fechaFin)
+        public ServiceResult BancosMasAcreditados()
         {
             var result = new ServiceResult();
             try
             {
-                var map = _dashboardRepository.BancosMasAcreditados(fehaInicio, fechaFin) ; // Llama al repositorio para buscar el detalle del flete por su ID
+                var map = _dashboardRepository.BancosMasAcreditados(); // Llama al repositorio para buscar el detalle del flete por su ID
 
                 return result.Ok(map); // Retorna el resultado exitoso con el detalle del flete encontrado
             }

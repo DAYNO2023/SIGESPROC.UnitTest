@@ -102,27 +102,12 @@ namespace SIGESPROC.API.Controllers.ControllersGeneral
             var response = _dashboardService.ProyectosRelacionados(); // Llama al servicio para listar los fletes
             return Ok(response.Data); // Retorna los datos obtenidos en la respuesta
         }
-
-        [HttpGet("ProyectosRelacionadosFletes/{fehaInicio},{fechaFin}")]
-        public IActionResult DashboardProyectosRelacionados(string fehaInicio, string fechaFin)
-        {
-            var response = _dashboardService.ProyectosRelacionados(fehaInicio, fechaFin); // Llama al servicio para listar los fletes
-            return Ok(response.Data); // Retorna los datos obtenidos en la respuesta
-        }
-
         [HttpGet("DashboardTop5BodegasDestino")]
         public IActionResult DashboardTop5BodegasDestino()
         {
             var response = _dashboardService.Top5BodegasDestino(); // Llama al servicio para listar los fletes
             return Ok(response.Data); // Retorna los datos obtenidos en la respuesta
         }
-        [HttpGet("Top5BodegasDestino/{fechaInicio},{fechaFin}")]
-        public IActionResult DashboardTop5BodegasDestinoFecha(string fechaInicio, string fechaFin)
-        {
-            var response = _dashboardService.Top5BodegasDestino(fechaInicio, fechaFin); // Llama al servicio para listar los fletes
-            return Ok(response.Data); // Retorna los datos obtenidos en la respuesta
-        }
-
         [HttpGet("DashboardFletesTasaIncidencias")]
         public IActionResult DashboardFletesTasaIncidencias()
         {
@@ -130,10 +115,10 @@ namespace SIGESPROC.API.Controllers.ControllersGeneral
             return Ok(response.Data); // Retorna los datos obtenidos en la respuesta
         }
 
-        [HttpGet("TasaIncidenciasMesFletes/{fechaInicio},{fechaFin}")]
-        public IActionResult DashboardTasaIncidenciasFletes(string fechaInicio, string fechaFin)
+        [HttpGet("TasaIncidenciasMesFletes")]
+        public IActionResult DashboardTasaIncidenciasFletes()
         {
-            var response = _dashboardService.TasaIncidenciasMesFletes(fechaInicio, fechaFin); // Llama al servicio para listar los fletes
+            var response = _dashboardService.TasaIncidenciasMesFletes(); // Llama al servicio para listar los fletes
             return Ok(response.Data); // Retorna los datos obtenidos en la respuesta
         }
 
@@ -203,17 +188,6 @@ namespace SIGESPROC.API.Controllers.ControllersGeneral
             var list = _dashboardService.DashboardTotalBienesRaicesVendidos(fehaInicio, fechaFin);
             return Ok(list.Data);
         }
-
-        [HttpGet("TotalesVendidosNovendidos/{fehaInicio},{fechaFin}")]
-        /*
-         @param fechaInicio
-        @param fechafin
-         */
-        public IActionResult DashboardTotalVendidosNovendidos(string fehaInicio, string fechaFin)
-        {
-            var list = _dashboardService.DashboardTotalVendidosNovendidos(fehaInicio, fechaFin);
-            return Ok(list.Data);
-        }
         [HttpGet("DashboardcomparativoBienraiz")]
         public IActionResult DashboardcomparativoBienraiz()
         {
@@ -266,17 +240,17 @@ namespace SIGESPROC.API.Controllers.ControllersGeneral
 
 
 
-        [HttpGet("PagosJefesdeObra/{fehaInicio},{fechaFin}")]
-        public IActionResult DashboardPagosJefesObras(string fehaInicio, string fechaFin)
+        [HttpGet("PagosJefesdeObra/{id}")]
+        public IActionResult DashboardPagosJefesObras(int id)
         {
-            var response = _dashboardService.PagosJefesDeObra(fehaInicio, fechaFin); // Llama al servicio para buscar el detalle del flete
+            var response = _dashboardService.PagosJefesDeObra(id); // Llama al servicio para buscar el detalle del flete
             return Ok(response.Data); // Retorna un resultado exitoso con el detalle del flete encontrado
         }
 
-        [HttpGet("TopBancosMasAcreditados/{fehaInicio},{fechaFin}")]
-        public IActionResult BancosMasAcreditados(string fehaInicio, string fechaFin)
+        [HttpGet("TopBancosMasAcreditados")]
+        public IActionResult BancosMasAcreditados()
         {
-            var response = _dashboardService.BancosMasAcreditados(fehaInicio, fechaFin); // Llama al servicio para buscar el detalle del flete
+            var response = _dashboardService.BancosMasAcreditados(); // Llama al servicio para buscar el detalle del flete
             return Ok(response.Data); // Retorna un resultado exitoso con el detalle del flete encontrado
         }
 

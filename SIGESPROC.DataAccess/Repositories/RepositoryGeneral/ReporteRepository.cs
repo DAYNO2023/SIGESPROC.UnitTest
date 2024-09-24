@@ -267,8 +267,10 @@ namespace SIGESPROC.DataAccess.Repositories.RepositoryGeneral
 
                 var etapasYActividades = multi.Read<ReporteViewModel>().ToList();
                 var totalesEtapas = multi.Read<ReporteViewModel>().ToList();
+                var presupuesto = multi.Read<ReporteViewModel>().ToList();
                 var result = etapasYActividades
                              .Concat(totalesEtapas)
+                             .Concat(presupuesto)
                              .ToList();
 
                 return result.Any() ? result : Enumerable.Empty<ReporteViewModel>();
