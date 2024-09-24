@@ -1,9 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
+using NUnit.Framework;
 using SIGESPROC.API.Controllers.ControllersProyecto;
-using SIGESPROC.API.Extensions;
 using SIGESPROC.BusinessLogic.Services.ServiceProyecto;
 using SIGESPROC.Common.Models.ModelsProyecto;
 using System;
@@ -14,60 +12,32 @@ using System.Threading.Tasks;
 
 namespace SIGESPROC.UnitTest.Controllers
 {
-    [TestClass]
+    [TestFixture]
     public class ProsupuestoEmcabezadoTest
     {
         private ProyectoService _proyectoService;
         private static IMapper _mapper;
 
-        public ProsupuestoEmcabezadoTest()
-        {
-            if (_mapper == null)
-            {
-                var mappingConfig = new MapperConfiguration(mc =>
-                {
-                    mc.AddProfile(new MappingProfileExtensions());
-                });
-                IMapper mapper = mappingConfig.CreateMapper();
-                _mapper = mapper;
-            }
-        }
-        protected Mock<IMapper> map = new Mock<IMapper>();
-        PresupuestoEncabezadoController _presupuestoEncabezado;
-
-        [TestInitialize]
-        public void Initalize()
-        {
-            _presupuestoEncabezado = new PresupuestoEncabezadoController(_proyectoService, _mapper);
-        }
-
-
-        [TestMethod]
+        [Test]
         public void presupuestoEncabezadoCreate()
         {
-            var data = new PresupuestoEncabezadoViewModel();
-            var result = _presupuestoEncabezado.Create(data);
-
-            Assert.IsInstanceOfType<IActionResult>(result);
+            PresupuestoEncabezadoViewModel presupuestoEncabezadoViewModel = new PresupuestoEncabezadoViewModel();
+            PresupuestoEncabezadoController presupuestoEncabezadoController = new PresupuestoEncabezadoController(_proyectoService, _mapper);
+            var result = presupuestoEncabezadoController.Create(presupuestoEncabezadoViewModel);
             Assert.IsNotNull(result);
+            Assert.IsInstanceOf<IActionResult>(result);
         }
-
-
-
-        [TestMethod]
+        [Test]
         public void presupuestoEncabezadoUpdate()
         {
-            int id = 0;
-            var data = new PresupuestoEncabezadoViewModel();
-            var result = _presupuestoEncabezado.Update(data);
-
-            Assert.IsInstanceOfType<IActionResult>(result);
+            int id = 2;
+            PresupuestoEncabezadoViewModel presupuestoEncabezadoViewModel = new PresupuestoEncabezadoViewModel();
+            PresupuestoEncabezadoController presupuestoEncabezadoController = new PresupuestoEncabezadoController(_proyectoService, _mapper);
+            var result = presupuestoEncabezadoController.Update(presupuestoEncabezadoViewModel);
             Assert.IsNotNull(result);
+            Assert.IsInstanceOf<IActionResult>(result);
         }
-
-
-
-
-
     }
+
+    
 }

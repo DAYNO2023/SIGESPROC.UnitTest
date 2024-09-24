@@ -43,7 +43,7 @@ public class IntegrationTestPresupuestoEditar : IClassFixture<WebApplicationFact
 
         var content = new StringContent(JsonConvert.SerializeObject(presupuestoData), Encoding.UTF8, "application/json");
 
-        var response = await _client.PutAsync("/api/PresupuestoEncabezado/Actualizar", content); // Cambié a PUT para actualizaciones
+        var response = await _client.PutAsync("/api/PresupuestoEncabezado/Actualizar", content);
 
         Assert.True(response.IsSuccessStatusCode, $"Error en la solicitud: {response.StatusCode}");
 
