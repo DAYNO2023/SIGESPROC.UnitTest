@@ -56,8 +56,6 @@ namespace SIGESPROC.Entities.Entities
         [NotMapped]
         public int proy_Id { get; set; }
         [NotMapped]
-        public int proy_IdSalida { get; set; }
-        [NotMapped]
         public string proy_Descripcion { get; set; }
         [NotMapped]
         public string proy_Nombre { get; set; }

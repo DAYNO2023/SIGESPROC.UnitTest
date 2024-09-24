@@ -212,38 +212,40 @@ namespace SIGESPROC.Common.Models.ModelsGeneral
         public string tipoArticulo { get; set; }
         ///Reporte ReporteComparacionMonetaria
         //pARTE DEL PROYECTO
-        public string etapa_comparativo { get; set; }
-        public string etapa_TotalCantidad_comparativo { get; set; }
-        public string etapa_TotalManoObra_comparativo { get; set; }
-        public string etapa_TotalMateriales_comparativo { get; set; }
-        public string etapa_TotalSubtotal_comparativo { get; set; }
-        public string actividad_comparacion { get; set; }
-        public string cantidad_comparativo { get; set; }
-        public string manoObraUsada_comparativo { get; set; }
-        public string unidadmedida_comparativo { get; set; }
-        public string costoMateriales_comparativo { get; set; }
-        public string precioUnitario_comparativo { get; set; }
-        public string subtotal_comparativo { get; set; }
-
-        //Etapa
-
- 
-        ///Presupiestp mas proyecto + cliente
-        public string Total_Cantidad_Proyecto { get; set; }
-        public string Total_ManoObra_Proyecto { get; set; }
-        public string Total_CostoMateriales_Proyecto { get; set; }
-        public string Total_Subtotal_Proyecto { get; set; }
-        public string Total_Cantidad_Presupuesto { get; set; }
-        public string Total_ManoObra_Presupuesto { get; set; }
-        public string Total_CostoMateriales_Presupuesto { get; set; }
-        public string Total_PrecioMaquinaria_Presupuesto { get; set; }
-        public string Total_Ganancia_Presupuesto { get; set; }
-        public string Total_Pagos_Proyecto { get; set; }
-        public string Total_Global_Proyecto { get; set; }
-        public string Total_Global_Presupuesto { get; set; }
+        public string TotalCostoProyecto_CostoPorProyecto { get; set; }
+        public string TotalManoObraProyecto_CostoPorProyecto { get; set; }
+        public string TotalMaterialesProyecto_CostoPorProyecto { get; set; }
+        public string TotalIncidenciasProyecto_CostoPorProyecto { get; set; }
+        public string TotalGeneralProyecto_CostoPorProyecto { get; set; }
+        public string Proyecto_CostoPorProyecto { get; set; }
+        public string PresupuestoTitulo_CostoPorProyecto { get; set; }
+        public string PresupuestoDescripcion_CostoPorProyecto { get; set; }
+        public string FechaPresupuesto_CostoPorProyecto { get; set; }
+        public string PorcentajeGanancia_CostoPorProyecto { get; set; }
+        public string TotalPresupuestoManoObra_CostoPorProyecto { get; set; }
+        public string TotalPresupuestoMateriales_CostoPorProyecto { get; set; }
+        public string TotalPresupuestoMaquinaria_CostoPorProyecto { get; set; }
+        public string TotalPresupuesto_CostoPorProyecto { get; set; }
+        public string GananciaTotalPresupuesto_CostoPorProyecto { get; set; }
+        //Parte de la etapa
+        public string EtapaDescripcion_CostoPorProyecto { get; set; }
+        public string CantidadEtapa_CostoPorProyecto { get; set; }
+        public string PrecioUnitarioEtapa_CostoPorProyecto { get; set; }
+        public string SubtotalEtapa_CostoPorProyecto { get; set; }
+        public string TotalManoObraEtapa_CostoPorProyecto { get; set; }
+        public string TotalMaterialesEtapa_CostoPorProyecto { get; set; }
+        public string TotalIncidenciasEtapa_CostoPorProyecto { get; set; }
+        ///Parte de las actividades
+        public string ActividadDescripcion_CostoPorProyecto { get; set; }
+        public string CantidadActividad_CostoPorProyecto { get; set; }
+        public string PrecioUnitarioActividad_CostoPorProyecto { get; set; }
+        public string SubtotalActividad_CostoPorProyecto { get; set; }
+        public string TotalManoObraActividad_CostoPorProyecto { get; set; }
+        public string TotalMaterialesActividad_CostoPorProyecto { get; set; }
+        public string TotalIncidenciasActividad_CostoPorProyecto { get; set; }
         //Datos del presupuesto
-
-
+   
+     
 
 
         //////////////////Fin

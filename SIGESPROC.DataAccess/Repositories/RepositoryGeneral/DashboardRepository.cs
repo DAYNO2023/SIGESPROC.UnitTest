@@ -192,22 +192,6 @@ namespace SIGESPROC.DataAccess.Repositories.RepositoryGeneral
         }
 
 
-        //Totales  vendidos y no vendidos Por Fecha
-        public IEnumerable<DashboardViewModel> TotalesVendidosNovendidos(string fechaInicio, string fechaFin)
-        {
-            IEnumerable<DashboardViewModel> result;
-            using (var db = new SqlConnection(SIGESPROC.ConnectionString))
-            {
-                var parameter = new DynamicParameters();
-                parameter.Add("@fechaInicio", fechaInicio);
-                parameter.Add("@fechaFin", fechaFin);
-
-                // Ejecuta el comando SQL y obtiene la lista de registros
-                result = db.Query<DashboardViewModel>(ScriptsDataBase.DashboardProcesosVendidosNoVendidosPorMes, parameter, commandType: CommandType.StoredProcedure);
-                return result; // Retorna la lista de resultados
-            }
-        }
-
         //Totales compras Por Agente
         public IEnumerable<DashboardViewModel> TotalesVentasPorAgente(string fehaInicio, string fechaFin)
         {
@@ -250,20 +234,6 @@ namespace SIGESPROC.DataAccess.Repositories.RepositoryGeneral
                 return result; // Retorna la lista de resultados
             }
         }
-        public IEnumerable<DashboardViewModel> ProyectosRelacionados(string fehaInicio, string fechaFin)
-        {
-            List<DashboardViewModel> result = new List<DashboardViewModel>();
-            using (var db = new SqlConnection(SIGESPROC.ConnectionString))
-            {
-                var parameter = new DynamicParameters();
-                parameter.Add("@fechaInicio", fehaInicio);
-                parameter.Add("@fechaFin", fechaFin);
-                // Ejecuta el comando SQL y obtiene la lista de registros
-                result = db.Query<DashboardViewModel>(ScriptsDataBase.DashboardFletesPorProyectoMensuales, parameter, commandType: CommandType.StoredProcedure).ToList();
-                return result; // Retorna la lista de resultados
-            }
-        }
-
 
         //Top 5 bodegas destino mas frecuentes
         public IEnumerable<DashboardViewModel> Top5BodegasDestino()
@@ -273,22 +243,6 @@ namespace SIGESPROC.DataAccess.Repositories.RepositoryGeneral
             {
                 // Ejecuta el comando SQL y obtiene la lista de registros
                 result = db.Query<DashboardViewModel>(ScriptsDataBase.DashboardTop5BodegasMasFrecuentesDestino, commandType: CommandType.Text).ToList();
-                return result; // Retorna la lista de resultados
-            }
-        }
-
-        //Top 5 bodegas destino mas frecuentes
-        public IEnumerable<DashboardViewModel> TopBodegasDestinoFill(string fechaInicio, string fechaFin)
-        {
-            List<DashboardViewModel> result = new List<DashboardViewModel>();
-            using (var db = new SqlConnection(SIGESPROC.ConnectionString))
-            {
-                var parameter = new DynamicParameters();
-                parameter.Add("@fechaInicio", fechaInicio);
-                parameter.Add("@fechaFin", fechaFin);
-
-                // Ejecuta el comando SQL y obtiene la lista de registros
-                result = db.Query<DashboardViewModel>(ScriptsDataBase.DashboardFletesTopBodegasMasFrecuentesDestino, parameter, commandType: CommandType.StoredProcedure).ToList();
                 return result; // Retorna la lista de resultados
             }
         }
@@ -310,17 +264,13 @@ namespace SIGESPROC.DataAccess.Repositories.RepositoryGeneral
 
 
         //tasa de incidencias de fletes
-        public IEnumerable<DashboardViewModel> TasaIncidenciasMesFletes(string fechaInicio, string fechaFin)
+        public IEnumerable<DashboardViewModel> TasaIncidenciasMesFletes()
         {
             List<DashboardViewModel> result = new List<DashboardViewModel>();
             using (var db = new SqlConnection(SIGESPROC.ConnectionString))
             {
-                var parameter = new DynamicParameters();
-                parameter.Add("@fechaInicio", fechaInicio);
-                parameter.Add("@fechaFin", fechaFin);
-
                 // Ejecuta el comando SQL y obtiene la lista de registros
-                result = db.Query<DashboardViewModel>(ScriptsDataBase.DashboardTasaIncidenciasMeses, parameter, commandType: CommandType.StoredProcedure).ToList();
+                result = db.Query<DashboardViewModel>(ScriptsDataBase.DashboardTasaIncidenciasMeses, commandType: CommandType.Text).ToList();
                 return result; // Retorna la lista de resultados
             }
         }
@@ -469,15 +419,14 @@ namespace SIGESPROC.DataAccess.Repositories.RepositoryGeneral
             }
         }
 
-        public IEnumerable<DashboardViewModel> PagosJefesObra(string fehaInicio, string fechaFin)
+        public IEnumerable<DashboardViewModel> PagosJefesObra(int? id)
           {
             List<DashboardViewModel> result = new List<DashboardViewModel>();
 
             using (var db = new SqlConnection(SIGESPROC.ConnectionString))
             {
                 var parameter = new DynamicParameters();
-                parameter.Add("@fechaInicio", fehaInicio); // Parámetro para el ID del flete
-                parameter.Add("@fechaFin", fechaFin); // Parámetro para el ID del flete
+                parameter.Add("@empl_Id", id); // Parámetro para el ID del flete
 
                 // Ejecuta el procedimiento almacenado y obtiene la lista de detalles de flete
                 result = db.Query<DashboardViewModel>(ScriptsDataBase.DashboardPlanillaPagosJefesObra, parameter, commandType: CommandType.StoredProcedure).ToList();
@@ -531,18 +480,15 @@ namespace SIGESPROC.DataAccess.Repositories.RepositoryGeneral
             }
         }
 
-        public IEnumerable<DashboardViewModel> BancosMasAcreditados(string fehaInicio, string fechaFin)
+        public IEnumerable<DashboardViewModel> BancosMasAcreditados()
          {
             List<DashboardViewModel> result = new List<DashboardViewModel>();
 
             using (var db = new SqlConnection(SIGESPROC.ConnectionString))
             {
-                var parameter = new DynamicParameters();
-                parameter.Add("@fechaInicio", fehaInicio);
-                parameter.Add("@fechaFin", fechaFin);
-
+                
                 // Ejecuta el procedimiento almacenado y obtiene la lista de detalles de flete
-                result = db.Query<DashboardViewModel>(ScriptsDataBase.DashboardPlanillaTop5BancosConMasAcreditaciones, parameter, commandType: CommandType.StoredProcedure).ToList();
+                result = db.Query<DashboardViewModel>(ScriptsDataBase.DashboardPlanillaTop5BancosConMasAcreditaciones, commandType: CommandType.Text).ToList();
                 return result; // Retorna el resultado
             }
         }

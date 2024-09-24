@@ -993,9 +993,7 @@ namespace SIGESPROC.DataAccess
         public static string DashboardTop5BodegasMasFrecuentesDestino = "[Flet].[SP_FletesEncabezado_BodegasDestino_Dashboard]";
         public static string DashboardTasaIncidencias = "[Flet].[SP_FletesEncabezado_IncidenciasMensuales_Dashboard]";
 
-        public static string DashboardFletesTopBodegasMasFrecuentesDestino = "[Gral].[SP_Dashboard_FletesEncabezado_TopBodegasDestino]";
         public static string DashboardTasaIncidenciasMeses = "[Gral].[SP_Dashboard_FletesEncabezado_IncidenciasMensuales]";
-        public static string DashboardFletesPorProyectoMensuales = "[Gral].[SP_Dashboard_Fletes_ProyectosRelacionadosFill]";
         //Bienes raices
         public static string DashboardTerrenosVendidosPorMes = "Raiz.SP_ProcesosVentas_TerrenosPorMes_Dashboard";
         public static string DashboardVentasPorAgente = "Raiz.SP_ProcesosVentas_VentasPorAgente_Dashboard";
@@ -1025,7 +1023,6 @@ namespace SIGESPROC.DataAccess
         public static string DashboardProcesosVentasVentasAgente = "[Gral].[SP_Dashboard_ProcesosVentas_VentasPorAgente]";
         public static string DashboardProcesosVentasTerrenosVendidosPorMes = "[Gral].[SP_Dashboard_ProcesoVenta_TotalTerrenos]";
         public static string DashboardProcesosVentasBienesRaicesVendidosPorMes = "[Gral].[SP_Dashboard_ProcesoVenta_TotalBienesRaices]";
-        public static string DashboardProcesosVendidosNoVendidosPorMes = "[Gral].[SP_Dashboard_ProcesosVentas_TotalFill]";
         public static string DashboardPlanillaPagosJefesObra = "[Gral].[SP_Dashboard_Planilla_PagosJefeObra]";
         public static string DashboardPlanillaTop5BancosConMasAcreditaciones = "[Gral].[SP_Banco_Top5Acreditaciones_Dashboard]";
         //public static string DashboardTotalIncidenciasAtividades = "[Gral].[SP_Dashboard_Incidentes_TotalIncidenciasDelMesActual]";
